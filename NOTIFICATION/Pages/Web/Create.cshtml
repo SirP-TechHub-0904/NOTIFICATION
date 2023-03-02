@@ -1,0 +1,108 @@
+﻿@page
+@model NOTIFICATION.Pages.Web.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">ADD A WEBSITE/ACCOUNT </h3>
+
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Information.Title" class="control-label"></label>
+                        <input asp-for="Information.Title" class="form-control" />
+                        <span asp-validation-for="Information.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.Name" class="control-label"></label>
+                        <input asp-for="Information.Name" class="form-control" />
+                        <span asp-validation-for="Information.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.Cost" class="control-label"></label>
+                        <input asp-for="Information.Cost" class="form-control" />
+                        <span asp-validation-for="Information.Cost" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.AccountHosted" class="control-label"></label>
+                        <input asp-for="Information.AccountHosted" class="form-control" />
+                        <span asp-validation-for="Information.AccountHosted" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.DateHosted" class="control-label"></label>
+                        <input asp-for="Information.DateHosted" class="form-control" />
+                        <span asp-validation-for="Information.DateHosted" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.DateExpiring" class="control-label"></label>
+                        <input asp-for="Information.DateExpiring" class="form-control" />
+                        <span asp-validation-for="Information.DateExpiring" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.DateRenewed" class="control-label"></label>
+                        <input asp-for="Information.DateRenewed" class="form-control" />
+                        <span asp-validation-for="Information.DateRenewed" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.Date" class="control-label"></label>
+                        <input asp-for="Information.Date" class="form-control" />
+                        <span asp-validation-for="Information.Date" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.DLastUpdateDate" class="control-label"></label>
+                        <input asp-for="Information.DLastUpdateDate" class="form-control" />
+                        <span asp-validation-for="Information.DLastUpdateDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.Description" class="control-label"></label>
+                        <input asp-for="Information.Description" class="form-control" />
+                        <span asp-validation-for="Information.Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.ClientId" class="control-label"></label>
+                        <select asp-for="Information.ClientId" class="form-control" asp-items="ViewBag.ProfileId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.Interval" class="control-label"></label>
+                        <input asp-for="Information.Interval" class="form-control" />
+                        <span asp-validation-for="Information.Interval" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.AccontStatus" class="control-label"></label>
+                        @Html.DropDownListFor(model => model.Information.AccontStatus, new SelectList(Enum.GetValues(typeof(NOTIFICATION.Data.AccontStatus))), new { @class = "form-control" })
+                        <span asp-validation-for="Information.AccontStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Information.AccontType" class="control-label"></label>
+                        @Html.DropDownListFor(model => model.Information.AccontType, new SelectList(Enum.GetValues(typeof(NOTIFICATION.Data.AccontType))), new { @class = "form-control" })
+                        <span asp-validation-for="Information.AccontType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                        <a asp-page="./Index" class="btn bg-gradient-warning btn-sm" style="float:right;">Back</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

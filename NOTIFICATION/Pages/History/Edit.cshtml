@@ -1,0 +1,63 @@
+﻿@page
+@model NOTIFICATION.Pages.History.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">EDIT </h3>
+
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="RenewHistory.Id" />
+                            <div class="form-group">
+                                <label asp-for="RenewHistory.DateExpired" class="control-label"></label>
+                                <input asp-for="RenewHistory.DateExpired" class="form-control" />
+                                <span asp-validation-for="RenewHistory.DateExpired" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RenewHistory.DateRenewed" class="control-label"></label>
+                                <input asp-for="RenewHistory.DateRenewed" class="form-control" />
+                                <span asp-validation-for="RenewHistory.DateRenewed" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RenewHistory.Amount" class="control-label"></label>
+                                <input asp-for="RenewHistory.Amount" class="form-control" />
+                                <span asp-validation-for="RenewHistory.Amount" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="RenewHistory.InformationId" class="control-label"></label>
+                                <select asp-for="RenewHistory.InformationId" class="form-control" asp-items="ViewBag.InformationId"></select>
+                                <span asp-validation-for="RenewHistory.InformationId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                                <a asp-page="./Index" class="btn bg-gradient-warning btn-sm" style="float:right;">Back</a>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- /.row -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+            </div>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
